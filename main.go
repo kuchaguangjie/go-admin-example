@@ -79,8 +79,9 @@ func startServer() {
 	}
 
 	go func() {
+		log.Printf("listen address %q\n", srv.Addr)
 		if err := srv.ListenAndServe(); err != nil {
-			log.Printf("listen: %s\n", err)
+			log.Fatalf("start failed: %s\n", err)
 		}
 	}()
 
